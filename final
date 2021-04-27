@@ -1,0 +1,494 @@
+import { Override, Data, Color } from "framer"
+import * as React from "react"
+
+// [1]
+const data = Data({
+    selectedItem: null,
+    searchTerm: "",
+})
+
+const appState = Data({
+    //Value of the slider for every question
+    Question1: 0,
+    Question2: 0,
+    Question3: 0,
+    Question4: 0,
+    Question5: 0,
+    Question6: 0,
+    Question7: 0,
+    Question8: 0,
+    Question9: 0,
+    Question10: 0,
+    Question11: 0,
+    Question12: 0,
+
+    //Frequency that a certain category is addressed in the quiz
+    healthf: 4,
+    developmentf: 4,
+    animalf: 1,
+    climatef: 3,
+    futuref: 4,
+    innovationf: 2,
+    policyf: 2,
+    interventionf: 2,
+    frequencyDonationf: 2,
+    charityFundf: 1,
+    bequestf: 2,
+
+    //Score for the different categories
+    health: 0,
+    development: 0,
+    animal: 0,
+    climate: 0,
+    future: 0,
+    innovation: 0,
+    policy: 0,
+    intervention: 0,
+    frequencyDonation: 0,
+    charityFund: 0,
+    bequest: 0,
+
+    // Number of the winning category per section
+    themeResult: 0,
+    methodResult: 0,
+    strategyResult: 0,
+})
+
+// Read answers to questions from sliders
+export function Question1(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question1 = Math.floor(number)
+        },
+    }
+}
+
+export function Question2(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question2 = Math.floor(number)
+        },
+    }
+}
+
+export function Question3(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question3 = Math.floor(number)
+        },
+    }
+}
+
+export function Question4(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question4 = Math.floor(number)
+        },
+    }
+}
+
+export function Question5(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question5 = Math.floor(number)
+        },
+    }
+}
+
+export function Question6(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question6 = Math.floor(number)
+        },
+    }
+}
+
+export function Question7(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question7 = Math.floor(number)
+        },
+    }
+}
+
+export function Question8(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question8 = Math.floor(number)
+        },
+    }
+}
+
+export function Question9(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question9 = Math.floor(number)
+        },
+    }
+}
+
+export function Question10(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question10 = Math.floor(number)
+        },
+    }
+}
+
+export function Question11(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question11 = Math.floor(number)
+        },
+    }
+}
+
+export function Question12(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question12 = Math.floor(number)
+        },
+    }
+}
+
+// Calculate result - winning categories
+export function CalculateResult(): Override {
+    return {
+        onTap() {
+            // Calculating scores for theme
+            ;(appState.health =
+                (appState.Question1 +
+                    appState.Question2 +
+                    appState.Question3 +
+                    appState.Question5) /
+                appState.healthf),
+                (appState.development =
+                    (appState.Question1 +
+                        appState.Question2 +
+                        appState.Question3 +
+                        (100 - appState.Question5)) /
+                    appState.developmentf),
+                (appState.animal = 100 - appState.Question1),
+                (appState.climate =
+                    (100 -
+                        appState.Question2 +
+                        (100 - appState.Question3) +
+                        appState.Question4 +
+                        (100 - appState.Question8)) /
+                    appState.climatef),
+                (appState.future =
+                    (100 -
+                        appState.Question2 +
+                        (100 - appState.Question3) +
+                        (100 - appState.Question4)) /
+                    appState.futuref)
+
+            //Determining winning theme
+            if (
+                appState.health >= appState.development &&
+                appState.health >= appState.animal &&
+                appState.health >= appState.climate &&
+                appState.health >= appState.future
+            ) {
+                appState.themeResult = 1
+                data.searchTerm = "s/aPG8& hoge   "
+            }
+
+            if (
+                appState.development >= appState.health &&
+                appState.development >= appState.animal &&
+                appState.development >= appState.climate &&
+                appState.development >= appState.future
+            ) {
+                appState.themeResult = 2
+                data.searchTerm = "pg*Rm&4d hoge   "
+            }
+
+            if (
+                appState.animal >= appState.health &&
+                appState.animal >= appState.development &&
+                appState.animal >= appState.climate &&
+                appState.animal >= appState.future
+            ) {
+                appState.themeResult = 3
+                data.searchTerm = "4<5XzgS$  "
+            }
+
+            if (
+                appState.climate >= appState.health &&
+                appState.climate >= appState.development &&
+                appState.climate >= appState.animal &&
+                appState.climate >= appState.future
+            ) {
+                appState.themeResult = 4
+                data.searchTerm = "EWj]D3c "
+            }
+
+            if (
+                appState.future >= appState.health &&
+                appState.future >= appState.development &&
+                appState.future >= appState.animal &&
+                appState.future >= appState.climate
+            ) {
+                appState.themeResult = 5
+                data.searchTerm = "tNX9e?< "
+            }
+
+            //Caluculating score for method
+            ;(appState.innovation =
+                (appState.Question6 + (100 - appState.Question7)) /
+                appState.innovationf),
+                (appState.policy =
+                    (appState.Question7 + (100 - appState.Question8)) /
+                    appState.policyf),
+                (appState.intervention =
+                    (100 - appState.Question6 + appState.Question8) /
+                    appState.interventionf)
+
+            //Determining winning method
+            if (
+                appState.innovation >= appState.intervention &&
+                appState.innovation >= appState.policy
+            ) {
+                appState.methodResult = 1
+                data.searchTerm = data.searchTerm + "pg~W6&(g "
+            }
+
+            if (
+                appState.policy >= appState.intervention &&
+                appState.policy >= appState.innovation
+            ) {
+                appState.methodResult = 2
+                data.searchTerm = data.searchTerm + "^7f~-$Zk "
+            }
+
+            if (
+                appState.intervention >= appState.innovation &&
+                appState.intervention >= appState.policy
+            ) {
+                appState.methodResult = 3
+                data.searchTerm = data.searchTerm + "G6y7]~zj "
+            }
+
+            //Calculating score for strategy
+            ;(appState.frequencyDonation =
+                (appState.Question11 + appState.Question9) /
+                appState.frequencyDonationf),
+                (appState.charityFund = appState.Question10),
+                (appState.bequest =
+                    (appState.Question11 + appState.Question12) /
+                    appState.bequestf)
+
+            //Determining winning strategy
+
+            if (
+                appState.frequencyDonation >= 50 &&
+                appState.charityFund >= 50 &&
+                appState.bequest >= 50
+            ) {
+                appState.strategyResult = 1
+            }
+
+            if (
+                appState.frequencyDonation >= 50 &&
+                appState.charityFund >= 50 &&
+                appState.bequest <= 50
+            ) {
+                appState.strategyResult = 2
+            }
+
+            if (
+                appState.frequencyDonation >= 50 &&
+                appState.charityFund <= 50 &&
+                appState.bequest <= 50
+            ) {
+                appState.strategyResult = 3
+            }
+
+            if (
+                appState.frequencyDonation <= 50 &&
+                appState.charityFund <= 50 &&
+                appState.bequest <= 50
+            ) {
+                appState.strategyResult = 4
+            }
+
+            if (
+                appState.frequencyDonation <= 50 &&
+                appState.charityFund <= 50 &&
+                appState.bequest >= 50
+            ) {
+                appState.strategyResult = 5
+            }
+
+            if (
+                appState.frequencyDonation <= 50 &&
+                appState.charityFund >= 50 &&
+                appState.bequest >= 50
+            ) {
+                appState.strategyResult = 6
+            }
+
+            if (
+                appState.frequencyDonation <= 50 &&
+                appState.charityFund >= 50 &&
+                appState.bequest <= 50
+            ) {
+                appState.strategyResult = 7
+            }
+
+            if (
+                appState.frequencyDonation <= 50 &&
+                appState.charityFund <= 50 &&
+                appState.bequest >= 50
+            ) {
+                appState.strategyResult = 8
+            }
+
+            // data.searchTerm =
+            //     appState.charityFund >= 50
+            //         ? data.searchTerm + "7XnWU$_:"
+            //         : data.searchTerm + "  $9mh{E%w"
+        },
+    }
+}
+
+// Determining which elements are displayed in the results section
+export function Healthdisplay(): Override {
+    return {
+        visible: appState.themeResult == 1 ? true : false,
+    }
+}
+
+export function Developmentdisplay(): Override {
+    return {
+        visible: appState.themeResult == 2 ? true : false,
+    }
+}
+
+export function Animaldisplay(): Override {
+    return {
+        visible: appState.themeResult == 3 ? true : false,
+    }
+}
+
+export function Climatedisplay(): Override {
+    return {
+        visible: appState.themeResult == 4 ? true : false,
+    }
+}
+
+export function Futuredisplay(): Override {
+    return {
+        visible: appState.themeResult == 5 ? true : false,
+    }
+}
+
+export function Innovationdisplay(): Override {
+    return {
+        visible: appState.methodResult == 1 ? true : false,
+    }
+}
+
+export function Policydisplay(): Override {
+    return {
+        visible: appState.methodResult == 2 ? true : false,
+    }
+}
+
+export function InterventionDisplay(): Override {
+    return {
+        visible: appState.methodResult == 3 ? true : false,
+    }
+}
+
+export function Strategy1Display(): Override {
+    return {
+        visible: appState.strategyResult == 1 ? true : false,
+    }
+}
+
+export function Strategy2Display(): Override {
+    return {
+        visible: appState.strategyResult == 2 ? true : false,
+    }
+}
+
+export function Strategy3Display(): Override {
+    return {
+        visible: appState.strategyResult == 3 ? true : false,
+    }
+}
+
+export function Strategy4Display(): Override {
+    return {
+        visible: appState.strategyResult == 4 ? true : false,
+    }
+}
+
+export function Strategy5Display(): Override {
+    return {
+        visible: appState.strategyResult == 5 ? true : false,
+    }
+}
+
+export function Strategy6Display(): Override {
+    return {
+        visible: appState.strategyResult == 6 ? true : false,
+    }
+}
+
+export function Strategy7Display(): Override {
+    return {
+        visible: appState.strategyResult == 7 ? true : false,
+    }
+}
+
+export function Strategy8Display(): Override {
+    return {
+        visible: appState.strategyResult == 8 ? true : false,
+    }
+}
+
+// Setting search query + link for charity recommendation component
+export function searchDataComponent(): Override {
+    return {
+        searchTerm: data.searchTerm,
+        onItemTap(item: any) {
+            data.selectedItem = item
+        },
+    }
+}
+
+// Overriding values for charity display full-screen
+export function CharityPage(): Override {
+    return {
+        concreteImpact: data.selectedItem
+            ? data.selectedItem.concreteImpact
+            : "",
+        concreteImpactUnit: data.selectedItem
+            ? data.selectedItem.concreteImpactUnit
+            : "",
+        relativeImpact: data.selectedItem
+            ? data.selectedItem.relativeImpact
+            : "",
+        relativeImpactUnit: data.selectedItem
+            ? data.selectedItem.relativeImpactUnit
+            : "",
+        anbi: data.selectedItem ? data.selectedItem.anbi : "",
+        beschrijving: data.selectedItem ? data.selectedItem.Beschrijving : "",
+        category: data.selectedItem ? data.selectedItem.category : "",
+        evaluatingOrganisation: data.selectedItem
+            ? data.selectedItem.evaluatingOrganisation
+            : "",
+        fundCharity: data.selectedItem ? data.selectedItem.fundCharity : "",
+        methode: data.selectedItem ? data.selectedItem.methode : "",
+        nameCopy: data.selectedItem ? data.selectedItem.nameCopy : "",
+        subcategory: data.selectedItem ? data.selectedItem.subcategory : "",
+        dataQuality: data.selectedItem ? data.selectedItem.dataQuality : "",
+        colorData: data.selectedItem ? data.selectedItem.colorData : "",
+        zekerheidImpact: data.selectedItem
+            ? data.selectedItem.zekerheidImpact
+            : "",
+    }
+}
