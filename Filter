@@ -1,0 +1,364 @@
+import { Override, Data, Color } from "framer"
+import * as React from "react"
+
+const data = Data({
+    selectedItem: null,
+    searchTerm: "",
+
+    Gezondheid: false,
+    Health1Checked: false,
+    Health2Checked: false,
+    Health3Checked: false,
+
+    DevelopmentChecked: false,
+    Development1Checked: false,
+    Development2Checked: false,
+    Development3Checked: false,
+
+    AnimalChecked: false,
+    Animal1Checked: false,
+
+    ClimateChecked: false,
+    Climate1Checked: false,
+    Climate2Checked: false,
+
+    FutureChecked: false,
+    Future1Checked: false,
+    Future2Checked: false,
+    Future3Checked: false,
+
+    ANBIChecked: false,
+    CharityChecked: false,
+    FundChecked: false,
+
+    PolicyChecked: false,
+    InterventionChecked: false,
+    InnovationChecked: false,
+
+    Negativehealth: false,
+})
+
+export function Mainhealth(): Override {
+    return {
+        onToggle: () => {
+            data.Gezondheid = !data.Gezondheid
+            data.Negativehealth = true
+        },
+    }
+}
+
+export function Subhealth1(): Override {
+    return {
+        onToggle() {
+            data.Health1Checked = !data.Health1Checked
+        },
+    }
+}
+
+export function Subhealth2(): Override {
+    return {
+        onToggle() {
+            data.Health2Checked = !data.Health2Checked
+        },
+    }
+}
+
+export function Subhealth3(): Override {
+    return {
+        onToggle() {
+            data.Health3Checked = !data.Health3Checked
+        },
+    }
+}
+
+export function MainDevelopment(): Override {
+    return {
+        onToggle: () => {
+            data.DevelopmentChecked = !data.DevelopmentChecked
+        },
+    }
+}
+
+export function Subdevelopment1(): Override {
+    return {
+        onToggle() {
+            data.Development1Checked = !data.Development1Checked
+        },
+    }
+}
+
+export function SubDevelopment2(): Override {
+    return {
+        onToggle() {
+            data.Development2Checked = !data.Development2Checked
+        },
+    }
+}
+
+export function SubDevelopment3(): Override {
+    return {
+        onToggle() {
+            data.Development3Checked = !data.Development3Checked
+        },
+    }
+}
+
+export function MainAnimal(): Override {
+    return {
+        onToggle: () => {
+            data.AnimalChecked = !data.AnimalChecked
+        },
+    }
+}
+
+export function SubAnimal(): Override {
+    return {
+        onToggle() {
+            data.Animal1Checked = !data.Animal1Checked
+        },
+    }
+}
+
+export function MainClimate(): Override {
+    return {
+        onToggle: () => {
+            data.ClimateChecked = !data.ClimateChecked
+        },
+    }
+}
+
+export function SubClimate1(): Override {
+    return {
+        onToggle() {
+            data.Climate1Checked = !data.Climate1Checked
+        },
+    }
+}
+
+export function SubClimate2(): Override {
+    return {
+        onToggle() {
+            data.Climate2Checked = !data.Climate2Checked
+        },
+    }
+}
+
+export function MainFuture(): Override {
+    return {
+        onToggle: () => {
+            data.FutureChecked = !data.FutureChecked
+        },
+    }
+}
+
+export function SubFuture1(): Override {
+    return {
+        onToggle() {
+            data.Future1Checked = !data.Future1Checked
+        },
+    }
+}
+
+export function SubFuture2(): Override {
+    return {
+        onToggle() {
+            data.Future2Checked = !data.Future2Checked
+        },
+    }
+}
+
+export function SubFuture3(): Override {
+    return {
+        onToggle() {
+            data.Future3Checked = !data.Future3Checked
+        },
+    }
+}
+
+export function Charity(): Override {
+    return {
+        onToggle() {
+            data.CharityChecked = !data.CharityChecked
+        },
+    }
+}
+
+export function Fund(): Override {
+    return {
+        onToggle() {
+            data.FundChecked = !data.FundChecked
+        },
+    }
+}
+
+export function ANBI(): Override {
+    return {
+        onToggle() {
+            data.ANBIChecked = !data.ANBIChecked
+        },
+    }
+}
+
+export function Intervention(): Override {
+    return {
+        onToggle() {
+            data.InterventionChecked = !data.InterventionChecked
+        },
+    }
+}
+export function Innovation(): Override {
+    return {
+        onToggle() {
+            data.InnovationChecked = !data.InnovationChecked
+        },
+    }
+}
+
+export function Policy(): Override {
+    return {
+        onToggle() {
+            data.PolicyChecked = !data.PolicyChecked
+        },
+    }
+}
+
+export function ProductCardList(): Override {
+    return {
+        searchTerm: data.searchTerm,
+        onItemTap(item: any) {
+            data.selectedItem = item
+        },
+    }
+}
+
+export function Button(): Override {
+    return {
+        onTap() {
+            ;(data.searchTerm = ""),
+                (data.searchTerm =
+                    data.Gezondheid == true
+                        ? data.searchTerm + "s/aPG8&  "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Health1Checked == true
+                        ? data.searchTerm + "6#*wX5* "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Health2Checked == true
+                        ? data.searchTerm + "'P74hT?X  "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Health3Checked == true
+                        ? data.searchTerm + "8Bh;jH<A  "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.DevelopmentChecked == true
+                        ? data.searchTerm + "pg*Rm&4d "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Development1Checked == true
+                        ? data.searchTerm + "Jp'vE9YA "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Development2Checked == true
+                        ? data.searchTerm + "T)9r~w$8 "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Development3Checked == true
+                        ? data.searchTerm + "&nKz8X}+  "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.AnimalChecked == true
+                        ? data.searchTerm + "4<5XzgS$ "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Animal1Checked == true
+                        ? data.searchTerm + "h&V7,X:  "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.ClimateChecked == true
+                        ? data.searchTerm + "EWj]D3c "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Climate1Checked == true
+                        ? data.searchTerm + "@>ARrz49 "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Climate2Checked == true
+                        ? data.searchTerm + "x;pT3~N]  "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.FutureChecked == true
+                        ? data.searchTerm + "tNX9e?< "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Future1Checked == true
+                        ? data.searchTerm + "G#uFt3c2 "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Future2Checked == true
+                        ? data.searchTerm + "3S+5]acZ "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.Future3Checked == true
+                        ? data.searchTerm + "gA)9:w% "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.CharityChecked == true
+                        ? data.searchTerm + "7XnWU$_: "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.FundChecked == true
+                        ? data.searchTerm + "$9mh{E%w "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.ANBIChecked == true
+                        ? data.searchTerm + " &7#%M@g3 "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.InterventionChecked == true
+                        ? data.searchTerm + "G6y7]~zj "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.PolicyChecked == true
+                        ? data.searchTerm + "^7f~-$Zk "
+                        : data.searchTerm),
+                (data.searchTerm =
+                    data.InnovationChecked == true
+                        ? data.searchTerm + "pg~W6&(g "
+                        : data.searchTerm)
+        },
+    }
+}
+
+export function CharityPage(): Override {
+    return {
+        concreteImpact: data.selectedItem
+            ? data.selectedItem.concreteImpact
+            : "",
+        concreteImpactUnit: data.selectedItem
+            ? data.selectedItem.concreteImpactUnit
+            : "",
+        relativeImpact: data.selectedItem
+            ? data.selectedItem.relativeImpact
+            : "",
+        relativeImpactUnit: data.selectedItem
+            ? data.selectedItem.relativeImpactUnit
+            : "",
+        anbi: data.selectedItem ? data.selectedItem.anbi : "",
+        beschrijving: data.selectedItem ? data.selectedItem.Beschrijving : "",
+        category: data.selectedItem ? data.selectedItem.category : "",
+        evaluatingOrganisation: data.selectedItem
+            ? data.selectedItem.evaluatingOrganisation
+            : "",
+        fundCharity: data.selectedItem ? data.selectedItem.fundCharity : "",
+        methode: data.selectedItem ? data.selectedItem.methode : "",
+        nameCopy: data.selectedItem ? data.selectedItem.nameCopy : "",
+        subcategory: data.selectedItem ? data.selectedItem.subcategory : "",
+        dataQuality: data.selectedItem ? data.selectedItem.dataQuality : "",
+        colorData: data.selectedItem ? data.selectedItem.colorData : "",
+        zekerheidImpact: data.selectedItem
+            ? data.selectedItem.zekerheidImpact
+            : "",
+    }
+}
