@@ -1,0 +1,247 @@
+import { Override, Data, Color } from "framer"
+
+// [1]
+const data = Data({
+    anbi: 0,
+    Approach: 0,
+    Charity: 0,
+    Subtheme: 0,
+    displayImpact: 0,
+
+    FilterVariant: [
+        "VTkR9MEJr",
+        "fFflkjkVj",
+        "ef8ZMbwbU",
+        "UkRelaE4E",
+        "MQcrLP87v",
+    ],
+})
+
+// Filter data component based on selected filters & store entry that was clicked on
+export function ProductCardList(): Override {
+    return {
+        onItemTap(item: any) {
+            ;(data.selectedItem = item),
+                (data.displayImpact = parseFloat(
+                    data.selectedItem.concreteImpact
+                ))
+        },
+    }
+}
+
+// Overriding values displayed on a charities page
+export function Charityheader(): Override {
+    return {
+        nameCopy: data.selectedItem ? data.selectedItem.nameCopy : "",
+        subtitle: data.selectedItem ? data.selectedItem.subtitle : "",
+        star4: data.selectedItem ? data.selectedItem.star4 : "",
+        star5: data.selectedItem ? data.selectedItem.star5 : "",
+        logo: data.selectedItem ? data.selectedItem.logo : "",
+        image: data.selectedItem ? data.selectedItem.image : "",
+    }
+}
+
+export function soort(): Override {
+    return {
+        charity: data.selectedItem ? data.selectedItem.fundCharity : "",
+    }
+}
+
+export function anbidisplay(): Override {
+    return {
+        anbi: data.selectedItem ? data.selectedItem.anbi : "",
+    }
+}
+
+export function beoordelaar(): Override {
+    return {
+        evaluatingOrganisation: data.selectedItem
+            ? data.selectedItem.evaluatingOrganisation
+            : "",
+    }
+}
+
+export function probleemgebied(): Override {
+    return {
+        category: data.selectedItem ? data.selectedItem.category : "",
+        subcategory: data.selectedItem ? data.selectedItem.subcategory : "",
+    }
+}
+
+export function aanpak(): Override {
+    return {
+        approach: data.selectedItem ? data.selectedItem.approach : "",
+    }
+}
+
+export function risico(): Override {
+    return {
+        impactPredictability: data.selectedItem
+            ? data.selectedItem.impactPredictability
+            : "",
+    }
+}
+
+export function WatzeDoen(): Override {
+    return {
+        about: data.selectedItem ? data.selectedItem.about : "",
+    }
+}
+
+export function Effectiviteit(): Override {
+    return {
+        effectiveness: data.selectedItem ? data.selectedItem.effectiveness : "",
+    }
+}
+
+export function ImpactDisplay(): Override {
+    return {
+        visible: data.displayImpact > 0 ? true : false,
+    }
+}
+
+export function RelativeImpact(): Override {
+    return {
+        relativeImpact: data.selectedItem
+            ? data.selectedItem.relativeImpact
+            : "",
+        relativeImpactUnit: data.selectedItem
+            ? data.selectedItem.relativeImpactUnit
+            : "",
+    }
+}
+
+export function ConcreteImpact(): Override {
+    return {
+        concreteImpact: data.selectedItem
+            ? data.selectedItem.concreteImpact
+            : "",
+        concreteImpactUnit: data.selectedItem
+            ? data.selectedItem.concreteImpactUnit
+            : "",
+    }
+}
+
+export function dataQuality(): Override {
+    return {
+        dataQuality: data.selectedItem ? data.selectedItem.dataQuality : "",
+    }
+}
+
+// [2]
+export function anbi(): Override {
+    return {
+        defaultItem: data.anbi + 1,
+
+        onOption1Tap() {
+            data.anbi = 0
+        },
+
+        onOption2Tap() {
+            data.anbi = 1
+        },
+
+        onOption3Tap() {
+            data.anbi = 2
+        },
+    }
+}
+
+export function Approach(): Override {
+    return {
+        defaultItem: data.Approach + 1,
+
+        onOption1Tap() {
+            data.Approach = 0
+        },
+
+        onOption2Tap() {
+            data.Approach = 1
+        },
+
+        onOption3Tap() {
+            data.Approach = 2
+        },
+
+        onOption4Tap() {
+            data.Approach = 3
+        },
+    }
+}
+
+export function Charityfund(): Override {
+    return {
+        defaultItem: data.Charity + 1,
+
+        onOption1Tap() {
+            data.Charity = 0
+        },
+
+        onOption2Tap() {
+            data.Charity = 1
+        },
+
+        onOption3Tap() {
+            data.Charity = 2
+        },
+    }
+}
+
+export function Subtheme(): Override {
+    return {
+        defaultItem: data.Subtheme + 1,
+
+        onOption1Tap() {
+            data.Subtheme = 0
+        },
+
+        onOption2Tap() {
+            data.Subtheme = 1
+        },
+
+        onOption3Tap() {
+            data.Subtheme = 2
+        },
+
+        onOption4Tap() {
+            data.Subtheme = 3
+        },
+    }
+}
+
+export function anbiFilter(): Override {
+    return {
+        variant: data.FilterVariant[data.anbi],
+    }
+}
+
+export function approachFilter(): Override {
+    return {
+        variant: data.FilterVariant[data.Approach],
+    }
+}
+
+export function charityFilter(): Override {
+    return {
+        variant: data.FilterVariant[data.Charity],
+    }
+}
+
+export function subthemeFilter(): Override {
+    return {
+        variant: data.FilterVariant[data.Subtheme],
+    }
+}
+
+export function removeFilters(): Override {
+    return {
+        onTap() {
+            ;(data.anbi = 0),
+                (data.Approach = 0),
+                (data.Charity = 0),
+                (data.Subtheme = 0),
+                (data.selectedItem = 0),
+                (data.displayImpact = 0)
+        },
+    }
+}
