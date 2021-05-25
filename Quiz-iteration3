@@ -1,3 +1,6 @@
+//Quiz: (C) Lotte de Lint, 2021 for DPB390
+//The code reads quiz answers translates them into scores, determines the final winning categories and enables the display of the outcome of the quiz 
+
 import { Override, Data, Color } from "framer"
 import * as React from "react"
 
@@ -7,6 +10,7 @@ const data = Data({
     searchTerm: "",
 })
 
+//Creating all relevant variables 
 const appState = Data({
     //Value of the slider for every question
     Question1: 50,
@@ -84,6 +88,7 @@ export function jouwUitslag(): Override {
     }
 }
 
+//Adding a 'neither-correction' if the neither button is turned on
 export function Question1neither(): Override {
     return {
         onClick() {
@@ -216,6 +221,7 @@ export function Question11neither(): Override {
     }
 }
 
+//Change opacity of dilemma options based on the position of the slider
 export function Question1opacityA(): Override {
     return {
         opacity:
@@ -659,45 +665,3 @@ export function Bequestdisplay(): Override {
     }
 }
 
-// Setting search query + link for charity recommendation component
-export function searchDataComponent(): Override {
-    return {
-        searchTerm: data.searchTerm,
-        onItemTap(item: any) {
-            data.selectedItem = item
-        },
-    }
-}
-
-// Overriding values for charity display full-screen
-export function CharityPage(): Override {
-    return {
-        concreteImpact: data.selectedItem
-            ? data.selectedItem.concreteImpact
-            : "",
-        concreteImpactUnit: data.selectedItem
-            ? data.selectedItem.concreteImpactUnit
-            : "",
-        relativeImpact: data.selectedItem
-            ? data.selectedItem.relativeImpact
-            : "",
-        relativeImpactUnit: data.selectedItem
-            ? data.selectedItem.relativeImpactUnit
-            : "",
-        anbi: data.selectedItem ? data.selectedItem.anbi : "",
-        beschrijving: data.selectedItem ? data.selectedItem.Beschrijving : "",
-        category: data.selectedItem ? data.selectedItem.category : "",
-        evaluatingOrganisation: data.selectedItem
-            ? data.selectedItem.evaluatingOrganisation
-            : "",
-        fundCharity: data.selectedItem ? data.selectedItem.fundCharity : "",
-        methode: data.selectedItem ? data.selectedItem.methode : "",
-        nameCopy: data.selectedItem ? data.selectedItem.nameCopy : "",
-        subcategory: data.selectedItem ? data.selectedItem.subcategory : "",
-        dataQuality: data.selectedItem ? data.selectedItem.dataQuality : "",
-        colorData: data.selectedItem ? data.selectedItem.colorData : "",
-        zekerheidImpact: data.selectedItem
-            ? data.selectedItem.zekerheidImpact
-            : "",
-    }
-}
