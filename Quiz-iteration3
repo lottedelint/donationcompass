@@ -1,0 +1,703 @@
+import { Override, Data, Color } from "framer"
+import * as React from "react"
+
+// [1]
+const data = Data({
+    selectedItem: null,
+    searchTerm: "",
+})
+
+const appState = Data({
+    //Value of the slider for every question
+    Question1: 50,
+    Question2: 50,
+    Question3: 50,
+    Question4: 50,
+    Question5: 50,
+    Question6: 50,
+    Question7: 50,
+    Question8: 50,
+    Question9: 50,
+    Question10: 50,
+    Question11: 50,
+    Question12: 50,
+
+    neitherCorrection1: 1,
+    neitherCorrection2: 1,
+    neitherCorrection12: 1,
+    neitherCorrection4: 1,
+    neitherCorrection5: 1,
+    neitherCorrection6: 1,
+    neitherCorrection7: 1,
+    neitherCorrection8: 1,
+    neitherCorrection9: 1,
+    neitherCorrection10: 1,
+    neitherCorrection11: 1,
+
+    //Frequency that a certain category is addressed in the quiz
+    healthf: 3,
+    developmentf: 3,
+    animalf: 1,
+    climatef: 2,
+    futuref: 3,
+    innovationf: 2,
+    policyf: 2,
+    interventionf: 2,
+    frequencyDonationf: 2,
+    charityFundf: 1,
+    bequestf: 2,
+
+    //Score for the different categories
+    health: 0,
+    development: 0,
+    animal: 0,
+    climate: 0,
+    future: 0,
+    innovation: 0,
+    policy: 0,
+    intervention: 0,
+    frequencyDonation: 0,
+    charityFund: 0,
+    bequest: 0,
+
+    // Number of the winning category per section
+    themeResult: 0,
+    methodResult: 0,
+    frequencyResult: false,
+    charityResult: false,
+    bequestResult: false,
+    result: false,
+
+    variantsCauseArea: [
+        "VTRTxiOwK",
+        "OvqwIVEx5",
+        "qzTXHn0uL",
+        "mh1ErdCGt",
+        "rbP_Df_IU",
+    ],
+    variantsApproach: ["wfe7IuEUX", "K5dO3aHyv", "CrHlGA7wD"],
+})
+
+export function jouwUitslag(): Override {
+    return {
+        visible: appState.result,
+    }
+}
+
+export function Question1neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection1 > 0) {
+                appState.neitherCorrection1 = -50
+            } else {
+                appState.neitherCorrection1 = 1
+            }
+        },
+    }
+}
+
+export function Question2neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection2 > 0) {
+                appState.neitherCorrection2 = -50
+            } else {
+                appState.neitherCorrection2 = 1
+            }
+        },
+    }
+}
+
+export function Question12neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection12 > 0) {
+                appState.neitherCorrection12 = -50
+            } else {
+                appState.neitherCorrection12 = 1
+            }
+        },
+    }
+}
+
+export function Question4neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection4 > 0) {
+                appState.neitherCorrection4 = -50
+            } else {
+                appState.neitherCorrection4 = 1
+            }
+        },
+    }
+}
+
+export function Question5neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection5 > 0) {
+                appState.neitherCorrection5 = -50
+            } else {
+                appState.neitherCorrection5 = 1
+            }
+        },
+    }
+}
+
+export function Question6neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection6 > 0) {
+                appState.neitherCorrection6 = -50
+            } else {
+                appState.neitherCorrection6 = 1
+            }
+        },
+    }
+}
+
+export function Question7neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection7 > 0) {
+                appState.neitherCorrection7 = -50
+            } else {
+                appState.neitherCorrection7 = 1
+            }
+        },
+    }
+}
+
+export function Question8neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection8 > 0) {
+                appState.neitherCorrection8 = -50
+            } else {
+                appState.neitherCorrection8 = 1
+            }
+        },
+    }
+}
+
+export function Question9neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection9 > 0) {
+                appState.neitherCorrection9 = -50
+            } else {
+                appState.neitherCorrection9 = 1
+            }
+        },
+    }
+}
+
+export function Question10neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection10 > 0) {
+                appState.neitherCorrection10 = -50
+            } else {
+                appState.neitherCorrection10 = 1
+            }
+        },
+    }
+}
+
+export function Question11neither(): Override {
+    return {
+        onClick() {
+            if (appState.neitherCorrection11 > 0) {
+                appState.neitherCorrection11 = -50
+            } else {
+                appState.neitherCorrection11 = 1
+            }
+        },
+    }
+}
+
+export function Question1opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection1 > 0
+                ? (100 - appState.Question1) / 100
+                : 0,
+    }
+}
+
+export function Question1opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection1 > 0 ? appState.Question1 / 100 : 0,
+    }
+}
+
+export function Question2opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection2 > 0
+                ? (100 - appState.Question2) / 100
+                : 0,
+    }
+}
+
+export function Question2opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection2 > 0 ? appState.Question2 / 100 : 0,
+    }
+}
+
+export function Question3opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection12 > 0
+                ? (100 - appState.Question12) / 100
+                : 0,
+    }
+}
+
+export function Question3opacityB(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection12 > 0 ? appState.Question12 / 100 : 0,
+    }
+}
+
+export function Question4opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection4 > 0
+                ? (100 - appState.Question4) / 100
+                : 0,
+    }
+}
+
+export function Question4opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection4 > 0 ? appState.Question4 / 100 : 0,
+    }
+}
+export function Question5opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection5 > 0
+                ? (100 - appState.Question5) / 100
+                : 0,
+    }
+}
+
+export function Question5opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection5 > 0 ? appState.Question5 / 100 : 0,
+    }
+}
+
+export function Question6opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection6 > 0
+                ? (100 - appState.Question6) / 100
+                : 0,
+    }
+}
+
+export function Question6opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection6 > 0 ? appState.Question6 / 100 : 0,
+    }
+}
+
+export function Question7opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection7 > 0
+                ? (100 - appState.Question7) / 100
+                : 0,
+    }
+}
+
+export function Question7opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection7 > 0 ? appState.Question7 / 100 : 0,
+    }
+}
+
+export function Question8opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection8 > 0
+                ? (100 - appState.Question8) / 100
+                : 0,
+    }
+}
+
+export function Question8opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection8 > 0 ? appState.Question8 / 100 : 0,
+    }
+}
+
+export function Question9opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection9 > 0
+                ? (100 - appState.Question9) / 100
+                : 0,
+    }
+}
+
+export function Question9opacityB(): Override {
+    return {
+        opacity: appState.neitherCorrection9 > 0 ? appState.Question9 / 100 : 0,
+    }
+}
+
+export function Question10opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection10 > 0
+                ? (100 - appState.Question10) / 100
+                : 0,
+    }
+}
+
+export function Question10opacityB(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection10 > 0 ? appState.Question10 / 100 : 0,
+    }
+}
+
+export function Question11opacityA(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection11 > 0
+                ? (100 - appState.Question11) / 100
+                : 0,
+    }
+}
+
+export function Question11opacityB(): Override {
+    return {
+        opacity:
+            appState.neitherCorrection11 > 0 ? appState.Question11 / 100 : 0,
+    }
+}
+
+// Read answers to questions from sliders
+export function Question1(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question1 = Math.floor(number)
+        },
+    }
+}
+
+export function Question2(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question2 = Math.floor(number)
+        },
+    }
+}
+
+export function Question3(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question3 = Math.floor(number)
+        },
+    }
+}
+
+export function Question4(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question4 = Math.floor(number)
+        },
+    }
+}
+
+export function Question5(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question5 = Math.floor(number)
+        },
+    }
+}
+
+export function Question6(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question6 = Math.floor(number)
+        },
+    }
+}
+
+export function Question7(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question7 = Math.floor(number)
+        },
+    }
+}
+
+export function Question8(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question8 = Math.floor(number)
+        },
+    }
+}
+
+export function Question9(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question9 = Math.floor(number)
+        },
+    }
+}
+
+export function Question10(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question10 = Math.floor(number)
+        },
+    }
+}
+
+export function Question11(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question11 = Math.floor(number)
+        },
+    }
+}
+
+export function Question12(): Override {
+    return {
+        onChange: (number) => {
+            appState.Question12 = Math.floor(number)
+        },
+    }
+}
+
+// Calculate result - winning categories
+export function CalculateResult(): Override {
+    return {
+        onTap() {
+            appState.result = true
+            // Calculating scores for theme
+            ;(appState.health =
+                (appState.Question1 +
+                    appState.Question2 +
+                    appState.Question5 +
+                    appState.neitherCorrection1 +
+                    appState.neitherCorrection2 +
+                    appState.neitherCorrection5) /
+                appState.healthf),
+                (appState.development =
+                    (appState.Question1 +
+                        appState.Question2 +
+                        (100 - appState.Question5) +
+                        appState.neitherCorrection1 +
+                        appState.neitherCorrection2 +
+                        appState.neitherCorrection5) /
+                    appState.developmentf),
+                (appState.animal =
+                    100 - appState.Question1 + appState.neitherCorrection1),
+                (appState.climate =
+                    (100 -
+                        appState.Question2 +
+                        appState.Question4 +
+                        (100 - appState.Question8) +
+                        appState.neitherCorrection2 +
+                        appState.neitherCorrection4 +
+                        appState.neitherCorrection8) /
+                    appState.climatef),
+                (appState.future =
+                    (100 -
+                        appState.Question2 +
+                        (100 - appState.Question4) +
+                        (100 - appState.Question8) +
+                        appState.neitherCorrection2 +
+                        appState.neitherCorrection4 +
+                        appState.neitherCorrection8) /
+                    appState.futuref)
+
+            if (
+                appState.health >= appState.development &&
+                appState.health >= appState.animal &&
+                appState.health >= appState.climate &&
+                appState.health >= appState.future
+            ) {
+                appState.themeResult = 0
+            }
+
+            if (
+                appState.development >= appState.health &&
+                appState.development >= appState.animal &&
+                appState.development >= appState.climate &&
+                appState.development >= appState.future
+            ) {
+                appState.themeResult = 1
+            }
+
+            if (
+                appState.animal >= appState.health &&
+                appState.animal >= appState.development &&
+                appState.animal >= appState.climate &&
+                appState.animal >= appState.future
+            ) {
+                appState.themeResult = 2
+            }
+
+            if (
+                appState.climate >= appState.health &&
+                appState.climate >= appState.development &&
+                appState.climate >= appState.animal &&
+                appState.climate >= appState.future
+            ) {
+                appState.themeResult = 3
+            }
+
+            if (
+                appState.future >= appState.health &&
+                appState.future >= appState.development &&
+                appState.future >= appState.animal &&
+                appState.future >= appState.climate
+            ) {
+                appState.themeResult = 4
+            }
+
+            //Caluculating score for method
+            ;(appState.innovation =
+                (appState.Question6 +
+                    (100 - appState.Question7) +
+                    appState.neitherCorrection6 +
+                    appState.neitherCorrection7) /
+                appState.innovationf),
+                (appState.policy =
+                    (appState.Question7 +
+                        (100 - appState.Question8) +
+                        appState.neitherCorrection7 +
+                        appState.neitherCorrection8) /
+                    appState.policyf),
+                (appState.intervention =
+                    (100 -
+                        appState.Question6 +
+                        appState.Question8 +
+                        appState.neitherCorrection6 +
+                        appState.neitherCorrection8) /
+                    appState.interventionf)
+
+            //Determining winning method
+            if (
+                appState.innovation >= appState.intervention &&
+                appState.innovation >= appState.policy
+            ) {
+                appState.methodResult = 0
+            }
+
+            if (
+                appState.policy >= appState.intervention &&
+                appState.policy >= appState.innovation
+            ) {
+                appState.methodResult = 1
+            }
+
+            if (
+                appState.intervention >= appState.innovation &&
+                appState.intervention >= appState.policy
+            ) {
+                appState.methodResult = 2
+            }
+
+            //Calculating score for strategy
+            ;(appState.frequencyDonation =
+                (appState.Question11 + appState.Question9) /
+                appState.frequencyDonationf),
+                (appState.charityFund = appState.Question10),
+                (appState.bequest =
+                    (appState.Question11 + appState.Question12) /
+                    appState.bequestf),
+                //Determining winning strategy
+                (appState.frequencyResult =
+                    appState.frequencyDonation >= 50 ? true : false)
+            appState.charityResult = appState.charityFund >= 50 ? true : false
+            appState.bequestResult = appState.bequest >= 50 ? true : false
+        },
+    }
+}
+
+// Determining which elements are displayed in the results section
+export function CauseAreadisplay(): Override {
+    return {
+        variant: appState.variantsCauseArea[appState.themeResult],
+    }
+}
+
+export function Approachdisplay(): Override {
+    return {
+        variant: appState.variantsApproach[appState.methodResult],
+    }
+}
+
+export function frequencydisplay(): Override {
+    return {
+        variant: appState.frequencyResult == true ? "LEP6kt0R6" : "An9SFhA4b",
+    }
+}
+
+export function Charitydisplay(): Override {
+    return {
+        variant: appState.charityResult == true ? "At3EwOwBY" : "Wt8n67nAA",
+    }
+}
+
+export function Bequestdisplay(): Override {
+    return {
+        variant: appState.bequestResult == true ? "zueaVINUN" : "qlLfm0xyU",
+    }
+}
+
+// Setting search query + link for charity recommendation component
+export function searchDataComponent(): Override {
+    return {
+        searchTerm: data.searchTerm,
+        onItemTap(item: any) {
+            data.selectedItem = item
+        },
+    }
+}
+
+// Overriding values for charity display full-screen
+export function CharityPage(): Override {
+    return {
+        concreteImpact: data.selectedItem
+            ? data.selectedItem.concreteImpact
+            : "",
+        concreteImpactUnit: data.selectedItem
+            ? data.selectedItem.concreteImpactUnit
+            : "",
+        relativeImpact: data.selectedItem
+            ? data.selectedItem.relativeImpact
+            : "",
+        relativeImpactUnit: data.selectedItem
+            ? data.selectedItem.relativeImpactUnit
+            : "",
+        anbi: data.selectedItem ? data.selectedItem.anbi : "",
+        beschrijving: data.selectedItem ? data.selectedItem.Beschrijving : "",
+        category: data.selectedItem ? data.selectedItem.category : "",
+        evaluatingOrganisation: data.selectedItem
+            ? data.selectedItem.evaluatingOrganisation
+            : "",
+        fundCharity: data.selectedItem ? data.selectedItem.fundCharity : "",
+        methode: data.selectedItem ? data.selectedItem.methode : "",
+        nameCopy: data.selectedItem ? data.selectedItem.nameCopy : "",
+        subcategory: data.selectedItem ? data.selectedItem.subcategory : "",
+        dataQuality: data.selectedItem ? data.selectedItem.dataQuality : "",
+        colorData: data.selectedItem ? data.selectedItem.colorData : "",
+        zekerheidImpact: data.selectedItem
+            ? data.selectedItem.zekerheidImpact
+            : "",
+    }
+}
