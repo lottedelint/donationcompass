@@ -1,3 +1,6 @@
+//Recommended charities: (C) Lotte de Lint, 2021 for DPB390
+//The code orders and filters the API database and enables the display of filters and in-depth charity information 
+
 import { Override, Data, Color } from "framer"
 
 // [1]
